@@ -32,7 +32,7 @@ const BudgetCategory = () => {
     e.preventDefault();
 
     try {
-      const response = await axios.post('http://localhost:5000/Category', {
+      const response = await axios.post('http://167.71.176.188:5000/Category', {
         email: email,
         categoryName: category,
         maxBudget: parseFloat(maxBudget),

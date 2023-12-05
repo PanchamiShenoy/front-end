@@ -28,7 +28,7 @@ const SignInPage = () => {
     e.preventDefault();
 
     try {
-      const response = await axios.post('http://localhost:5000/signin', {
+      const response = await axios.post('http://167.71.176.188:5000/signin', {
         email: formData.email,
         password: formData.password,
       });

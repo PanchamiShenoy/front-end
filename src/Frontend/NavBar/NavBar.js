@@ -66,7 +66,7 @@ const NavBar = ({ links }) => {
       // For instance, a request to a /extend-session endpoint
 
       // Example using fetch:
-      fetch(`http://localhost:5000/extend-session?email=${localStorage.getItem('savedEmail')}`, {
+      fetch(`http://167.71.176.188:5000/extend-session?email=${localStorage.getItem('savedEmail')}`, {
   method: 'POST',
   headers: {
     'Authorization': localStorage.getItem('token'), // Use your stored token here

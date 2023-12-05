@@ -1,0 +1,56 @@
+/* MoneySpentForm.css */
+
+.money-spent-form-container {
+    width: 350px;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+    margin: 50px auto;
+  }
+  
+  .money-spent-form-heading {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    text-align: center;
+  }
+  
+  .money-spent-form form {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .money-spent-form div {
+    margin-bottom: 15px;
+  }
+  
+  .money-spent-form label {
+    font-weight: bold;
+  }
+  
+  .money-spent-form select,
+  .money-spent-form input,
+  .money-spent-form button {
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    width: 100%;
+    box-sizing: border-box;
+  }
+  
+  .money-spent-form select,
+  .money-spent-form input {
+    margin-bottom: 15px;
+  }
+  
+  .money-spent-form button {
+    background-color: #af60eb;
+    color: white;
+    font-weight: bold;
+  }
+  
+  .money-spent-form button:hover {
+    background-color: #8e43e7;
+  }
+  

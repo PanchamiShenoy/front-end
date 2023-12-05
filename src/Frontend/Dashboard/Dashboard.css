@@ -1,0 +1,23 @@
+/* Dashboard.css */
+
+
+.dashboard-container {
+    margin-top: 200px;
+    padding-bottom: 20px; /* Adjust the bottom margin as needed */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+  
+  .chart-container {
+    margin-bottom: 20px;
+    width: 80%; /* Adjust the width as needed */
+    max-width: 800px; /* Limit maximum width */
+  }
+  
+  @media screen and (max-width: 768px) {
+    .chart-container {
+      width: 100%;
+    }
+  }
+  

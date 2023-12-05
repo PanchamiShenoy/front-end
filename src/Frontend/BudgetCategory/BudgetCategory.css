@@ -1,0 +1,63 @@
+/* BudgetForm.css */
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+  }
+
+.budget-category-container {
+    width: 400px;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+    margin: 50px auto;
+  }
+  
+  .budget-category-heading {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    text-align: center;
+  }
+  
+  .budget-category form {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .budget-category div {
+    margin-bottom: 15px;
+  }
+  
+  .budget-category label {
+    font-weight: bold;
+  }
+  
+  .budget-category input,
+  .budget-category button {
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    width: 100%;
+    box-sizing: border-box;
+  }
+  
+  .budget-category input {
+    margin-bottom: 15px;
+  }
+  
+  .budget-category button {
+    background-color: #af60eb;
+    color: white;
+    font-weight: bold;
+    margin-bottom: 20px;
+  }
+  
+  .budget-category button:hover {
+    background-color: #8e43e7;
+  }
+  

@@ -3,7 +3,7 @@ import React, { createContext, useState, useContext, useEffect } from 'react';
 const AuthContext = createContext();
 
 export const checkAuthenticated = () => {
-  return localStorage.getItem('isLoggedIn') === 'true';
+  return sessionStorage.getItem('isLoggedIn') === 'true';
 };
 
 export const useAuth = () => {
@@ -11,17 +11,20 @@ export const useAuth = () => {
 };
 
 export const AuthProvider = ({ children }) => {
-  useEffect(() => {
-    const isLoggedIn = localStorage.getItem('isLoggedIn') === 'true';
-    // Set your authentication state based on the value in localStorage
-  }, []);
+
+  const [signinIn, isIn] = useState(sessionStorage.getItem('isLoggedIn') === 'true'? true : false)
   const [isAuthenticated, setIsAuthenticated] = useState(
-    localStorage.getItem('isLoggedIn') === 'true'
+    sessionStorage.getItem('isLoggedIn') === 'true'? true : false
   );
 
+
+
+  // useEffect(() => {
+  //   signinIn ?  sessionStorage.setItem('isLoggedIn',  'true' ): sessionStorage.setItem('isLoggedIn',  'false' );
+  // }, [signinIn]);
+
   useEffect(() => {
-    localStorage.setItem('isLoggedIn', isAuthenticated ? 'true' : 'false');
-  }, [isAuthenticated]);
+    setIsAuthenticated(sessionStorage.getItem('isLoggedIn') === 'true'? true : false)},[signinIn]);
 
   
 
@@ -29,12 +32,17 @@ export const AuthProvider = ({ children }) => {
   //let inactivityTimer;
 
   const signIn = () => {
-    setIsAuthenticated(true);
+    isIn(true)
+    sessionStorage.setItem('isLoggedIn',  'true' )
+    // setIsAuthenticated(true);
     //setInactivityTimer(); // Start the inactivity timer upon successful login
   };
 
   const signOut = () => {
-    setIsAuthenticated(false);
+    sessionStorage.setItem('isLoggedIn',  'false' )
+    isIn(false)
+   
+    // setIsAuthenticated(false);
     //clearTimeout(inactivityTimer); // Clear the inactivity timer on logout
   };
 

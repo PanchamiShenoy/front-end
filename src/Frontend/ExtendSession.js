@@ -9,11 +9,12 @@ const ExtendSession = () => {
   const [resetNavbar, setResetNavbar] = useState(false);
   const [logoutTimer, setLogoutTimer] = useState(null);
   const timeoutIds = [];
+  let timerId;
 
   useEffect(() => {
-    localStorage.setItem('isLoggedIn', isAuthenticated ? 'true' : 'false');
+    sessionStorage.setItem('isLoggedIn', isAuthenticated ? 'true' : 'false');
     if (isAuthenticated) {
-      const timerId = setTimeout(handleLogout, 50000);
+      timerId = setTimeout(handleLogout, 50000);
       timeoutIds.push(timerId); 
       setLogoutTimer(timerId);
     }else {

@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import axios from 'axios';
 import './SignIn.css';
@@ -28,7 +27,7 @@ const SignInPage = () => {
     e.preventDefault();
 
     try {
-      const response = await axios.post('http://167.71.176.188:5000/signin', {
+      const response = await axios.post('http://localhost:5000/signin', {
         email: formData.email,
         password: formData.password,
       });
@@ -36,6 +35,10 @@ const SignInPage = () => {
       console.log('User authenticated:', response.data);
       const token = response.data.token; 
       localStorage.setItem('token', token);
+      signIn(); 
+      setEmailValue(formData.email);
+      navigate('/dashboard'); 
+      
     } catch (error) {
       if (error.response) {
         if (error.response.status === 400) {
@@ -47,9 +50,7 @@ const SignInPage = () => {
         console.error('An error occurred. Please try again.');
       }
     }
-    signIn(); 
-    setEmailValue(formData.email);
-    navigate('/dashboard'); 
+    
   };
 
   return (

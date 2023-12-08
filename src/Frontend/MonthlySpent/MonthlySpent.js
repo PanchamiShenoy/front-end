@@ -1,4 +1,3 @@
-/* eslint-disable jsx-a11y/aria-role */
 import React, { useState, useEffect } from 'react';
 import './MonthlySpent.css';
 import { useEmail } from '../EmailContext';
@@ -51,7 +50,7 @@ const MonthlySpent = () => {
   const fetchCategories = async (userEmail) => {
     try {
       console.log(userEmail);
-      const response = await axios.get(`http://167.71.176.188:5000/Category`, {
+      const response = await axios.get(`http://localhost:5000/Category`, {
         params: {
           email: userEmail,
           
@@ -89,7 +88,7 @@ const MonthlySpent = () => {
     try {
       // Insert into Expense table
       const response = await axios.post(
-        `http://167.71.176.188:5000/spent`,
+        `http://localhost:5000/spent`,
         {
           email: userEmail,
           name: selectedCategory,

@@ -8,6 +8,8 @@ import MonthlySpent from './MonthlySpent/MonthlySpent';
 import Dashboard from './Dashboard/Dashborad';
 import { AuthProvider } from './AuthContext';
 import { EmailProvider } from './EmailContext';
+import ExtendSession from './ExtendSession'; 
+
 
 const App = () => {
   const navLinks = [
@@ -19,12 +21,16 @@ const App = () => {
   ];
 
   return (
+   // <ExtendSession>
     <EmailProvider>
       <AuthProvider>
+        
         <Router>
           <div>
+          <ExtendSession></ExtendSession>
             <NavBar links={navLinks} />
             <Routes>
+            <Route path="/" element={<SignInPage />} />
               <Route path="/signup" element={<SignUpPage />} />
               <Route path="/signin" element={<SignInPage />} />
               <Route path="/dashboard" element={<Dashboard />} />
@@ -35,6 +41,7 @@ const App = () => {
         </Router>
       </AuthProvider>
     </EmailProvider>
+   // </ExtendSession>
   );
 };
 

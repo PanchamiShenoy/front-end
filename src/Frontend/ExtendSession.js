@@ -101,7 +101,7 @@ const ExtendSession = () => {
     clearTimeout(logoutTimer);
     if (isAuthenticated) {
     const confirmation = window.confirm(
-      'You will be logged out soon. Do you want to extend your session?'
+      'You will be logged out in 10 sec. Do you want to extend your session?'
     );
     if (confirmation) {
       extendSession();

@@ -38,6 +38,8 @@ const SignUpPage = () => {
       });
 
       console.log('Signup successful:', response.data);
+      const token = response.data.token; 
+      localStorage.setItem('token', token);
       signIn();
       setEmailValue(formData.email);
       navigate('/dashboard');

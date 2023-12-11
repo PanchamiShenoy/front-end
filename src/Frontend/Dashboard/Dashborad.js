@@ -31,7 +31,7 @@ const Dashboard = () => {
   }, [setToken]);
 
   useEffect(() => {
-    // Function to handle token changes in localStorage
+    
     const handleTokenChange = (e) => {
       if (e.key === 'token') {
         const updatedToken = e.newValue;
@@ -39,11 +39,9 @@ const Dashboard = () => {
       }
     };
   
-    // Add an event listener to listen for changes in localStorage
     window.addEventListener('storage', handleTokenChange);
   
     return () => {
-      // Remove the event listener when the component unmounts
       window.removeEventListener('storage', handleTokenChange);
     };
   }, [setToken]);
@@ -56,19 +54,7 @@ const Dashboard = () => {
     }
   }, []);
 
-  // useEffect(() => {
-  //   const handleEmailChange = () => {
-  //     if (email && email !== userEmail) {
-  //       setUserEmail(email);
-  //       localStorage.setItem('userEmail', email);
-  //     }
-  //   };
-
-  //   handleEmailChange();
-  // }, [email, userEmail]);
-
   useEffect(() => {
-    // let v= localStorage.getItem('token');
     if (!email) {
       setPageAccessible(false);
       return;
@@ -88,7 +74,7 @@ const Dashboard = () => {
       categoriesData.forEach(category => {
         categories.push(category.name);
         maxBudgets.push(category.maxBudget);
-        spentValues.push(category.spent || 0); // Replace null with 0
+        spentValues.push(category.spent || 0); 
       });
       console.log(categories,maxBudgets,spentValues)
       setBudgetData({
@@ -101,11 +87,11 @@ const Dashboard = () => {
     .catch(error => {
       if (error.response) {
         switch (error.response.status) {
-          case 401: // Unauthorized
+          case 401: 
             console.error('Unauthorized access');
             setPageAccessible(false);
             break;
-          case 404: // Not found
+          case 404: 
             console.error('Budget data not found for user:', userEmail);
             break;
           default:

@@ -22,7 +22,7 @@ const MonthlySpent = () => {
     if (!email) {
       setPageAccessible(false);
     } else {
-      // Fetch categories based on the user's email
+      
       fetchCategories(email);
     }
   }, [email]);
@@ -86,7 +86,7 @@ const MonthlySpent = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      // Insert into Expense table
+      
       const response = await axios.post(
         `http://localhost:5000/spent`,
         {
@@ -104,7 +104,7 @@ const MonthlySpent = () => {
       
       if (response.status === 200) {
         console.log('Expense added successfully');
-        // Clear the form after successful submission
+       
         setSelectedCategory('');
         setMoneySpent('');
         setSelectedMonth('');

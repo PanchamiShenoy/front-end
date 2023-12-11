@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@applitools/eyes-cypress": "^3.40.1",
     "@testing-library/jest-dom": "^5.17.0",
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
@@ -11,6 +12,7 @@
     "cors": "^2.8.5",
     "jsonwebtoken": "^9.0.2",
     "mysql": "^2.18.1",
+    "next": "^14.0.4",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.20.0",
@@ -20,8 +22,14 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "jest",
-    "eject": "react-scripts eject"
+    "test": "node --experimental-vm-modules node_modules/jest/bin/jest.js",
+    "eject": "react-scripts eject",
+    "type": "module"
+  },
+  "jest": {
+    "moduleNameMapper": {
+      "axios": "axios/dist/node/axios.cjs"
+    }
   },
   "browserslist": {
     "production": [
@@ -36,6 +44,15 @@
     ]
   },
   "devDependencies": {
-    "cypress": "^13.6.1"
+    "@applitools/eyes.cypress": "^3.4.11",
+    "@applitools/spec-driver-webdriver": "^1.0.51",
+    "@applitools/test-utils": "^1.5.17",
+    "@babel/core": "^7.23.5",
+    "@babel/preset-env": "^7.23.5",
+    "@babel/preset-react": "^7.23.3",
+    "babel-jest": "^29.7.0",
+    "cypress": "^13.6.1",
+    "esm": "^3.2.25",
+    "jest": "^27.5.1"
   }
 }

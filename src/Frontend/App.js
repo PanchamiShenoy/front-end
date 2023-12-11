@@ -21,7 +21,6 @@ const App = () => {
   ];
 
   return (
-   // <ExtendSession>
     <EmailProvider>
       <AuthProvider>
         
@@ -41,7 +40,6 @@ const App = () => {
         </Router>
       </AuthProvider>
     </EmailProvider>
-   // </ExtendSession>
   );
 };
 

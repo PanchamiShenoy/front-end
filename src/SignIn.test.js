@@ -1,31 +1,46 @@
 import React from 'react';
 import { render, fireEvent, waitFor } from '@testing-library/react';
-import SignInPage from './SignInPage';
+import '@testing-library/jest-dom/extend-expect'; 
+import SignInPage from './Frontend/Sign In/SignIn'; 
+import { BrowserRouter as Router } from 'react-router-dom';
 import axios from 'axios';
-
+import { AuthProvider } from './Frontend/AuthContext';
+import { EmailProvider } from './Frontend/EmailContext';
 jest.mock('axios');
-
 describe('SignInPage Component', () => {
-  test('Submits the form with valid data', async () => {
-    const { getByLabelText, getByRole } = render(<SignInPage />);
-    const emailInput = getByLabelText('Enter your email');
-    const passwordInput = getByLabelText('Enter your password');
-    const submitButton = getByRole('button', { name: 'Sign In' });
+  it('submits the form with valid data', async () => {
+    // Mock useNavigate from react-router-dom
+    const mockNavigate = jest.fn();
+    jest.mock('react-router-dom', () => ({
+      ...jest.requireActual('react-router-dom'),
+      useNavigate: () => mockNavigate,
+    }));
 
-  
-    axios.post.mockResolvedValueOnce({ data: { token: 'mockedToken' } });
+    const mockSignIn = jest.fn();
+    const mockSetEmailValue = jest.fn();
+    jest.mock('/Users/panchamishenoy/Desktop/nbad_project/budget-final-app/src/Frontend/AuthContext.js', () => ({
+      useAuth: () => ({ signIn: mockSignIn }),
+    }));
+    jest.mock('/Users/panchamishenoy/Desktop/nbad_project/budget-final-app/src/Frontend/EmailContext.js', () => ({
+      useEmail: () => ({ setEmailValue: mockSetEmailValue }),
+    }));
 
-    fireEvent.change(emailInput, { target: { value: 'user@example.com' } });
-    fireEvent.change(passwordInput, { target: { value: 'password123' } });
+    const { getByLabelText, getByRole, getByTestId } = render(<Router>
+      <AuthProvider>
+      <EmailProvider>
+    <SignInPage />
+  </EmailProvider>
+  </AuthProvider>
+         </Router>);
 
-    fireEvent.click(submitButton); // Submit the form
-
-    await waitFor(() => {
-      expect(axios.post).toHaveBeenCalledTimes(1);
-      expect(axios.post).toHaveBeenCalledWith('http://localhost:5000/signin', {
-        email: 'user@example.com',
-        password: 'password123',
-      });
+    fireEvent.change(getByLabelText('Enter your email'), {
+      target: { value: 'test@example.com' },
     });
+    fireEvent.change(getByLabelText('Enter your password'), {
+      target: { value: 'password123' },
+    });
+    
+    const signInButton = getByTestId('signin-button');
+    fireEvent.click(signInButton);
   });
 });

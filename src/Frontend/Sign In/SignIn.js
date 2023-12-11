@@ -85,7 +85,10 @@ const SignInPage = () => {
             />
           </div>
            {/* This is an A11y Change */}
-          <button type="submit" role = "Submit button" className="sign-in-button">Sign In</button>
+          {/* <button type="submit" name="signin" role = "Submit button" className="sign-in-button">Sign In</button> */}
+          <button type="submit" name="signin" role="Submit button" data-testid="signin-button">
+  Sign In
+</button>
         </form>
       </div>
     </div>

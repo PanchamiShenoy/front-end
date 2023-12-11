@@ -41,8 +41,7 @@ const SignUpPage = () => {
       signIn();
       setEmailValue(formData.email);
       navigate('/dashboard');
-      // Optionally, handle successful signup (e.g., show a success message, redirect user)
-    } catch (error) {
+      } catch (error) {
       if (error.response) {
         if (error.response.status === 400) {
           console.error('Bad Request: Check your input data');

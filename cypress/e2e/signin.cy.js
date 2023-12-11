@@ -1,10 +1,10 @@
 
 describe('Sign In', () => {
     it('successfully signs in a user', () => {
-      cy.visit('http://167.71.176.188:3000/signin'); 
+      cy.visit('http://localhost:3000/signin'); 
      
-      cy.get('input[name="email"]').type('johndoe@example.com');
-      cy.get('input[name="password"]').type('strongpassword');
+      cy.get('input[name="email"]').type('dd@gmail.com');
+      cy.get('input[name="password"]').type('12345');
   
       
       cy.intercept('POST', 'http://167.71.176.188:5000/signin').as('signInRequest');

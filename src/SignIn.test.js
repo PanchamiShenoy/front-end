@@ -9,7 +9,6 @@ import { EmailProvider } from './Frontend/EmailContext';
 jest.mock('axios');
 describe('SignInPage Component', () => {
   it('submits the form with valid data', async () => {
-    // Mock useNavigate from react-router-dom
     const mockNavigate = jest.fn();
     jest.mock('react-router-dom', () => ({
       ...jest.requireActual('react-router-dom'),
@@ -18,10 +17,10 @@ describe('SignInPage Component', () => {
 
     const mockSignIn = jest.fn();
     const mockSetEmailValue = jest.fn();
-    jest.mock('/Users/panchamishenoy/Desktop/nbad_project/budget-final-app/src/Frontend/AuthContext.js', () => ({
+    jest.mock('./Frontend/AuthContext.js', () => ({
       useAuth: () => ({ signIn: mockSignIn }),
     }));
-    jest.mock('/Users/panchamishenoy/Desktop/nbad_project/budget-final-app/src/Frontend/EmailContext.js', () => ({
+    jest.mock('./Frontend/EmailContext.js', () => ({
       useEmail: () => ({ setEmailValue: mockSetEmailValue }),
     }));
 

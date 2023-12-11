@@ -48,7 +48,7 @@ const ExtendSession = () => {
 
   const extendSession = () => {
     
-      fetch(`http://localhost:5000/extend-session?email=${localStorage.getItem('savedEmail')}`, {
+      fetch(`http://167.71.176.188:5000/extend-session?email=${localStorage.getItem('savedEmail')}`, {
   method: 'POST',
   headers: {
     'Authorization': localStorage.getItem('token'), 

@@ -60,7 +60,7 @@ const Dashboard = () => {
       return;
     }
     console.log(token,"has")
-    axios.get(`http://localhost:5000/budgetData?email=${localStorage.getItem('savedEmail')}&month=${selectedMonth}`, {
+    axios.get(`http://167.71.176.188:5000/budgetData?email=${localStorage.getItem('savedEmail')}&month=${selectedMonth}`, {
     headers: {
        'Authorization': `${localStorage.getItem('token')}`
     }

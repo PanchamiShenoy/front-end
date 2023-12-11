@@ -4,6 +4,8 @@
 
   clone the repository 
 
+  cd front-end
+
   npm install
 
   npm start

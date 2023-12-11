@@ -20,6 +20,6 @@
      
      select google chrome
      select signin.cy.js file 
-## Refer the attached screenshot of testing in testOutput folder 
+## Note - localhost:3000 needs to be running to execute e2e testing and Refer the attached screenshot of testing in testOutput folder 
 
 
